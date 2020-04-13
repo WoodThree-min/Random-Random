@@ -1,0 +1,13 @@
+mu=[1;2];
+sigma=[4 3;3 9];
+n=500000;
+m=2;
+x=samgaussian(mu,sigma,n,m);
+figure(6);
+nbin=100;
+set(gcf,'renderer','opengl');
+set(get(gca,'child'),'FaceColor','interp','CDataMode','auto');
+[z, c]=hist3(x,[nbin nbin]);
+[X, Y]=meshgrid(c{1},c{2});
+surfc(X,Y,z);
+%title('二维联合正态分布随机数频数分布图');
